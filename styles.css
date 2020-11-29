@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  grid-gap: 2rem;
+}
+
+* {
+  font-family: inherit;
+}
+
+nav {
+  height: 100%;
+  overflow: auto;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.loading:before {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  border: .2em solid;
+  border-radius: 50%;
+  border-color: transparent rgba(0, 0, 0, 0.9) rgba(0, 0, 0, 0.9);
+  animation: rotate 690ms infinite linear;
+  width: 1em;
+  height: 1em;
+}
