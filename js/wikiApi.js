@@ -19,7 +19,7 @@ export class wikiApi {
     return this.get(params);
   }
 
-  getPage = id => {
+  getPage(id) {
     const params = new URLSearchParams({
       origin: '*',
       action: 'parse',
@@ -31,7 +31,7 @@ export class wikiApi {
     return this.get(params);
   }
 
-  get = params => {
+  get(params) {
     const url = 'https://de.wikipedia.org/w/api.php?' + params.toString();
 
     return fetch(url)
