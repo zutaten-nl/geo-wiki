@@ -9,7 +9,7 @@ export const wikiRadius = customElements.define('wiki-radius', class extends HTM
       (new wikiApi).getByLocation(position.coords.longitude, position.coords.latitude, radius).then(r => {
         for (const i in r.query.pages) {
           const el = document.createElement('wiki-result');
-          el.setAttribute('item', JSON.stringify(r.query.pages[i]));
+          el.result = r.query.pages[i];
           nav.appendChild(el);
           nav.classList.remove('loading');
         }
@@ -54,8 +54,9 @@ export const wikiRadius = customElements.define('wiki-radius', class extends HTM
     this.template();
 
     this.setNavigation(this.getAttribute('radius'));
+
     this.shadowRoot.querySelector('select').addEventListener('change', e => {
       this.setNavigation(e.target.value);
     });
   }
-})
+});

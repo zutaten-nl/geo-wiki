@@ -43,7 +43,7 @@ export const wikiArticle = customElements.define('wiki-article', class extends H
         const body = document.createElement('div');
         body.innerHTML = r.parse.text['*'];
         this.shadowRoot.appendChild(body);
-      })
+      });
     }
   }
 

@@ -1,10 +1,19 @@
 export const wikiResult = customElements.define('wiki-result', class extends HTMLElement {
+  constructor() {
+    super();
 
-  template(item) {
+    this._result = {};
+  }
+
+  set result(value) {
+    this._result = value;
+  }
+
+  template() {
     return `
       <article>
-        <strong>${item.title}</strong>
-        <small>${item.terms.description}</small>    
+        <strong>${this._result.title}</strong>
+        <small>${this._result.terms === undefined ? '' : this._result.terms.description}</small>    
       </article>
     `
   }
@@ -33,13 +42,12 @@ export const wikiResult = customElements.define('wiki-result', class extends HTM
     style.textContent = this.style();
     this.shadowRoot.appendChild(style);
 
-    const item = JSON.parse(this.getAttribute('item'));
     const template = document.createElement('template');
-    template.innerHTML = this.template(item);
+    template.innerHTML = this.template();
     this.shadowRoot.appendChild(template.content.cloneNode(true));
 
     this.addEventListener('click', () => {
-      document.querySelector('wiki-article').setAttribute('page', item.pageid);
+      document.querySelector('wiki-article').setAttribute('page', this._result.pageid);
     });
   }
 });

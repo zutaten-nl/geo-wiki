@@ -30,6 +30,7 @@ export class wikiApi {
 
     return this.get(params);
   }
+
   get = params => {
     const url = 'https://de.wikipedia.org/w/api.php?' + params.toString();
 
