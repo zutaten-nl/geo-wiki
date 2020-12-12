@@ -5,7 +5,7 @@ export const wikiArticle = customElements.define('wiki-article', class extends H
     return ['page'];
   }
 
-  style() {
+  css() {
     return `
         :host > div {
           line-height: 1.5;
@@ -28,7 +28,7 @@ export const wikiArticle = customElements.define('wiki-article', class extends H
 
   setStyle() {
     const style = document.createElement('style');
-    style.textContent = this.style();
+    style.textContent = this.css();
     this.shadowRoot.appendChild(style);
   }
 

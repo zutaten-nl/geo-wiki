@@ -35,7 +35,7 @@ export const wikiRadius = customElements.define('wiki-radius', class extends HTM
     this.shadowRoot.appendChild(select);
   }
 
-  style() {
+  css() {
     return `
       select {
         border: .1rem solid black;
@@ -48,7 +48,7 @@ export const wikiRadius = customElements.define('wiki-radius', class extends HTM
     this.attachShadow({mode: 'open'});
 
     const style = document.createElement('style');
-    style.textContent = this.style();
+    style.textContent = this.css();
     this.shadowRoot.appendChild(style);
 
     this.template();

@@ -18,7 +18,7 @@ export const wikiResult = customElements.define('wiki-result', class extends HTM
     `
   }
 
-  style() {
+  css() {
     return `
       article {
         line-height: 1.5;
@@ -39,7 +39,7 @@ export const wikiResult = customElements.define('wiki-result', class extends HTM
     this.attachShadow({mode: 'open'});
 
     const style = document.createElement('style');
-    style.textContent = this.style();
+    style.textContent = this.css();
     this.shadowRoot.appendChild(style);
 
     const template = document.createElement('template');
