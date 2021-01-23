@@ -7,6 +7,12 @@ export const wikiRadius = customElements.define('wiki-radius', class extends HTM
     nav.classList.add('loading');
     navigator.geolocation.getCurrentPosition(position => {
       (new wikiApi).getByLocation(position.coords.longitude, position.coords.latitude, radius).then(r => {
+        if (r.query.pages === undefined) {
+          nav.classList.remove('loading');
+          nav.innerHTML = `<p>No results! Widen your radius.</p>`;
+
+          return;
+        }
         for (const i in r.query.pages) {
           const el = document.createElement('wiki-result');
           el.result = r.query.pages[i];
