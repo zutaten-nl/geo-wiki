@@ -32,8 +32,8 @@ export class wikiApi {
   }
 
   get(params) {
-    const country = navigator.language.split('-')[1].toLowerCase();
-    const url = `https://${country}.wikipedia.org/w/api.php?` + params.toString();
+    const lang = navigator.language.split('-')[0];
+    const url = `https://${lang}.wikipedia.org/w/api.php?` + params.toString();
 
     return fetch(url)
       .then(r => r.json());
