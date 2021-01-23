@@ -23,6 +23,7 @@ export const wikiResult = customElements.define('wiki-result', class extends HTM
       article {
         line-height: 1.5;
         margin: .3rem 0;
+        cursor: pointer;
       }
       
       strong,small {
